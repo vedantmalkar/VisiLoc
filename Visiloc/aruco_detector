@@ -1,0 +1,27 @@
+import cv2 as cv
+import numpy as np 
+
+cap = cv.VideoCapture(0)
+aruco_dic = cv.aruco.getPredefinedDictionary(cv.aruco.DICT_4X4_50)
+parameters = cv.aruco.DetectorParameters()
+
+while True:
+    success, img = cap.read()
+    marker_corner, marker_ID, rejected = cv.aruco.detectMarkers(img,aruco_dic,parameters=parameters)
+    if marker_corner:
+        for id,corner in zip(marker_ID,marker_corner):
+            cv.polylines(img, [corner.astype(np.int32)],True, (255,0,0),2,lineType=cv.LINE_AA)
+            corner = corner.reshape(4,2)
+            corner = corner.astype(int)
+            top_right = corner[0]
+            top_left = corner[1]
+            bottom_right = corner[2]
+            bottom_left = corner[3]
+            cv.putText(img,f"id: {id}", top_right, cv.FONT_HERSHEY_COMPLEX,0.7,(0,255,0),2,cv.LINE_AA)
+
+    cv.imshow("camera", img)
+    if cv.waitKey(1) == ord("q"):
+        break
+
+cap.release()
+cv.destroyAllWindows
