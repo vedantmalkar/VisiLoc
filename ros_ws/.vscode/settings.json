@@ -1,0 +1,4 @@
+{
+    "idf.pythonInstallPath": "/usr/bin/python",
+    "cmake.sourceDirectory": "/home/vedant/Visiloc/ros_ws/src/ignition_robot"
+}
