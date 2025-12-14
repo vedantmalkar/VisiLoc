@@ -24,7 +24,9 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            "marker_detector = vision_controller.pose_creation_node:main"
+            "marker_detector = vision_controller.pose_creation_node:main",
+            "coordinate_finder = vision_controller.coordinate_finder:main",
+            "coordinate_visualizer = vision_controller.coordinate_visualisation:main",
         ],
     },
 )
