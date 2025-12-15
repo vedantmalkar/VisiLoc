@@ -32,4 +32,36 @@ Simulated Bot | Anotated Camera Output | Calculated Location
 :-------------------------:|:-------------------------:|:-------------------------:
 Simulated Bot | Anotated Camera Output | Calculated Location
 
+# Try it for yourself:
 
+1. clone the repo
+```
+git clone https://github.com/vedantmalkar/VisiLoc.git
+cd VisiLoc/ros_ws/
+```
+
+2. build and source your workspace
+```
+colcon build
+source install/setup.bash
+```
+
+3. launch simulation
+```
+ros2 launch ignition_robot complete.launch.py 
+```
+
+4. on seperate terminal run finder node
+```
+ros2 run vision_controller coordinate_finder 
+```
+
+5. on another terminal run visualizer node
+```
+ros2 run vision_controller coordinate_visualizer 
+```
+
+6. move your bot using teleop_twist_keyboard on seperate terminal
+```
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+``` 
