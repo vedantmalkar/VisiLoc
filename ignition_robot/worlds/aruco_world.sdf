@@ -153,7 +153,7 @@ name="gz::sim::systems::Imu">
         <diffuse>1 1 1 1</diffuse>
         <pbr>
           <metal>
-            <albedo_map>file:///home/vedant/Visiloc/ros_ws/src/ignition_robot/models/aruco_marker_1/materials/textures/aruco_marker_1.png</albedo_map>
+            <albedo_map>model://aruco_marker_1/materials/textures/aruco_marker_1.png</albedo_map>
             <metalness>0.0</metalness>
             <roughness>0.5</roughness>
           </metal>

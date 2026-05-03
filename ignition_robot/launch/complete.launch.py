@@ -1,14 +1,21 @@
 import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, ExecuteProcess
+from launch.actions import IncludeLaunchDescription, ExecuteProcess, SetEnvironmentVariable
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
 def generate_launch_description():
     pkg_share = get_package_share_directory('ignition_robot')
-    
+
+    models_path = os.path.join(pkg_share, 'models')
+    existing = os.environ.get('GZ_SIM_RESOURCE_PATH', '')
+    gz_resource_path = SetEnvironmentVariable(
+        name='GZ_SIM_RESOURCE_PATH',
+        value=models_path + (os.pathsep + existing if existing else '')
+    )
+
     # Path to the custom world file
     world_file_name = 'aruco_world.sdf'
     world_path = os.path.join(pkg_share, 'worlds', world_file_name)
@@ -25,7 +32,7 @@ def generate_launch_description():
 
     # URDF file
     urdf_file = os.path.join(pkg_share, 'urdf', 'ignbot.urdf')
-    rviz_config = os.path.join(pkg_share, 'rviz', 'ignbot.rviz')
+    rviz_config = os.path.join(pkg_share, 'config', 'ignbot.rviz')
     
     with open(urdf_file, 'r') as infp:
         robot_desc = infp.read()
@@ -89,6 +96,7 @@ def generate_launch_description():
     
 
     return LaunchDescription([
+        gz_resource_path,
         gazebo,
         robot_state_publisher,
         joint_state_publisher,

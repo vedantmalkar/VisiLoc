@@ -16,7 +16,7 @@ find_package(ros_gz_bridge REQUIRED)
 find_package(ros_gz_sim REQUIRED)
 
 install(
-  DIRECTORY launch urdf config worlds
+  DIRECTORY launch urdf config worlds models
   DESTINATION share/${PROJECT_NAME}
 )
 
