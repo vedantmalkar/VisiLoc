@@ -34,14 +34,15 @@ Simulated Bot | Anotated Camera Output | Calculated Location
 
 # Try it for yourself:
 
-1. clone the repo
+1. clone the repo into your ROS 2 workspace
 ```
+cd ~/ros2_ws/src/
 git clone https://github.com/vedantmalkar/VisiLoc.git
-cd VisiLoc/ros_ws/
 ```
 
 2. build and source your workspace
 ```
+cd ~/ros2_ws/
 colcon build
 source install/setup.bash
 ```

@@ -3,9 +3,9 @@
 <package format="3">
   <name>ignition_robot</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>Gazebo / Ignition simulation package for VisiLoc. Provides the URDF, world (with ArUco-marker textures), launch files, and RViz config used to simulate a differential-drive robot navigating a marker-instrumented environment.</description>
   <maintainer email="ibrahimmansur4@gmail.com">ibrahim</maintainer>
-  <license>TODO: License declaration</license>
+  <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 

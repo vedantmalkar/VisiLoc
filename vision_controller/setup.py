@@ -13,10 +13,10 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='vedant',
+    maintainer='Vedant Malkar',
     maintainer_email='vedantitsme@gmail.com',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    description='ROS 2 perception package for VisiLoc. Subscribes to a camera image stream, detects ArUco markers, computes the robot pose with respect to the world frame, and exposes a Tkinter visualiser for the estimated coordinates.',
+    license='MIT',
     extras_require={
         'test': [
             'pytest',
@@ -24,7 +24,6 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            "marker_detector = vision_controller.pose_creation_node:main",
             "coordinate_finder = vision_controller.coordinate_finder:main",
             "coordinate_visualizer = vision_controller.coordinate_visualisation:main",
         ],

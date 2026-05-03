@@ -3,15 +3,17 @@
 <package format="3">
   <name>vision_controller</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="vedantitsme@gmail.com">vedant</maintainer>
-  <license>TODO: License declaration</license>
+  <description>ROS 2 perception package for VisiLoc. Subscribes to a camera image stream, detects ArUco markers, computes the robot pose with respect to the world frame, and exposes a Tkinter visualiser for the estimated coordinates.</description>
+  <maintainer email="vedantitsme@gmail.com">Vedant Malkar</maintainer>
+  <license>MIT</license>
 
   <depend>rclpy</depend>
   <depend>sensor_msgs</depend>
   <depend>cv_bridge</depend>
   <depend>std_msgs</depend>
-  <depend>geometry_msg</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>tf_transformations</depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
